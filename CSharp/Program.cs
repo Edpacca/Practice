@@ -6,29 +6,18 @@ namespace PracticeCode
     {
         static void Main(string[] args)
         {
-            ChessChecker chessChecker = new ChessChecker();
+            var robot = new BillyRobot();
 
-            var validPositions = chessChecker.ValidKnightPositions('b', 2);
+            robot.SpinBeep(3, 7);
+            robot.Move(21);
+            robot.Rotate(2);
+            robot.Move(2);
+            robot.SpinBeep(23, 1);
 
-            foreach (var postition in validPositions)
+            foreach (var command in robot.CommandLog)
             {
-                Console.WriteLine(postition);
+                Console.WriteLine(command);
             }
-        }
-
-        public static int UserInputToInteger(string message)
-        {
-            string userInput;
-            int output;
-
-            do
-            {
-                Console.Write(message);
-                userInput = Console.ReadLine();
-            } 
-            while (!int.TryParse(userInput, out output));
-
-            return output;
         }
     }
 }
